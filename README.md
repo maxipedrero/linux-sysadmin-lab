@@ -15,7 +15,8 @@ The repository is organized by core Linux administration skills.
 ```text
 linux-sysadmin-lab/
 
-01-linux-basics/
+00-linux-basics/
+01-file-permissions/
 02-shell/
 03-networking/
 04-services/
