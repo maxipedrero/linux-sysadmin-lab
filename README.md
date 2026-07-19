@@ -16,13 +16,12 @@ The repository is organized by core Linux administration skills.
 linux-sysadmin-lab/
 
 00-linux-basics/
-01-file-permissions/
-02-shell/
-03-networking/
-04-services/
-05-cloud/
-06-security/
-07-monitoring/
+01-shell/
+02-networking/
+03-services/
+04-cloud/
+05-security/
+06-monitoring/
 ```
 
 Each topic typically includes:
