@@ -235,3 +235,116 @@ Access the Nginx page again from the browser.
 Run the command again and observe the HTTP request in the logs.
 
 This demonstrates how containerized applications can expose useful operational information through container logs.
+
+12. Understand Container Lifecycle
+
+Practice the main container lifecycle commands:
+
+docker ps
+docker ps -a
+
+docker stop <container>
+docker start <container>
+
+docker restart <container>
+
+docker rm <container>
+
+The lifecycle can be represented as:
+
+Image
+  ↓
+docker run
+  ↓
+Created
+  ↓
+Running
+  ↓
+Stopped
+  ↓
+Removed
+
+A stopped container can be started again, while removing it deletes the container itself.
+
+13. Docker Compose
+
+Docker Compose allows multiple services and their configuration to be defined in a YAML file.
+
+A typical Compose project contains:
+
+project/
+├── compose.yml
+└── ...
+
+Example:
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+
+Start the services in the background:
+
+docker compose up -d
+
+The -d option runs the containers in detached mode, returning control of the terminal to the user.
+
+Check running containers:
+
+docker compose ps
+
+View logs:
+
+docker compose logs
+
+Stop the services:
+
+docker compose down
+14. Understanding Compose Configuration
+
+One of the main advantages of Compose is that the infrastructure configuration is stored in a file.
+
+Instead of manually running:
+
+docker run ...
+
+multiple times, services, ports, networks, volumes and other configuration can be described in compose.yml.
+
+The same configuration can then be recreated with:
+
+docker compose up -d
+
+This makes the environment easier to reproduce and maintain.
+
+15. Docker Compose and Local AWS Simulation
+
+Docker Compose also became relevant while exploring Floci, a local AWS simulator.
+
+The idea is to run AWS-compatible services locally inside containers instead of interacting with real AWS resources.
+
+This provides a useful environment for practicing AWS-related workflows while avoiding unnecessary cloud resources during experimentation.
+
+The Compose file defines the services required by the local environment and allows them to be started together.
+
+16. Practical Docker Workflow
+
+The workflow learned throughout this module can be summarized as:
+
+Search / Pull Image
+       ↓
+Create Container
+       ↓
+Start Application
+       ↓
+Publish Ports
+       ↓
+Inspect Processes
+       ↓
+Inspect Logs
+       ↓
+Troubleshoot
+       ↓
+Manage Lifecycle
+       ↓
+Define Environment with Compose
